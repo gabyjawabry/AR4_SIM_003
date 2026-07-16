@@ -13,8 +13,8 @@ import { PageContext } from "../../../container/js/utilities/context.jsx";
 import { DndContext, useDndMonitor } from '@dnd-kit/core';
 import Feedback from '../../../container/js/feedback.jsx';
 import DropSFX from '../sounds/drop.mp3';
-import CorrectSFX from '../sounds/gauge_correct.mp3';
-import IncorrectSFX from '../sounds/gauge_incorrect.mp3';
+import CorrectSFX from '../../../container/audio/correct.mp3';
+import IncorrectSFX from '../../../container/audio/wrong.mp3';
 import { FormattedMessage } from "react-intl";
 
 const DndInner = ({ droppableRefs, selectedAnswers, setSelectedAnswers, setActiveId, setUsedItems, usedItems }) => {
@@ -80,7 +80,7 @@ const dnd = ({ parameters, index, handleCheckAnswer }) => {
 	const [currentRound, setCurrentRound] = useState(0);
 	const audioData = { url: content.mainQuestionAudio, autoplay: true, id: parameters.id || 0 };
 	const pageContext = useContext(PageContext);
-	const { attemptGrade, missionNumber, stopAudio } = useContext(PageContext);
+	const { attemptGrade, missionNumber, stopAudio, setAudioURL } = useContext(PageContext);
 	const [roundData, setRoundData] = useState(null);
 	const [usedItems, setUsedItems] = useState([]);
 	const [activeId, setActiveId] = useState(null);
@@ -256,10 +256,14 @@ const dnd = ({ parameters, index, handleCheckAnswer }) => {
 		pageContext.setAttemptGrade(newGrade);
 		if(newGrade === 0 ){
 			const swiper = document.querySelector("#container-swiper")?.swiper;
-			if (swiper) {
-				swiper.slideTo(swiper.slides.length - 1, 1);
-			}
+
+			setAudioURL({ id: "wrong", url: IncorrectSFX, type: "sfx" }, () => {
+				if (swiper) {
+					swiper.slideTo(swiper.slides.length - 1, 1);
+				}
+			});
 		}
+
 		feedbackData = {
 			class: isCorrect ? "correct" : "incorrect",
 			message: isCorrect ? roundData.feedback?.correct?.text : roundData.feedback?.incorrect?.text,
@@ -268,8 +272,8 @@ const dnd = ({ parameters, index, handleCheckAnswer }) => {
 			result: isCorrect ? "correct" : "incorrect",
 			startTime: startTime.current,
 			isCorrect: isCorrect,
-			audio: isCorrect? roundData.feedback?.correct?.audio : newGrade === 0 ? content.hintAudio : roundData.feedback?.incorrect?.audio,
-			sfx: isCorrect ? CorrectSFX : IncorrectSFX
+			audio: isCorrect? roundData.feedback?.correct?.audio : roundData.feedback?.incorrect?.audio,
+			sfx: newGrade > 0 ? isCorrect ? CorrectSFX : IncorrectSFX : "no_sfx" 
 		};
 
 		setFeedbackParams(feedbackData);
@@ -293,6 +297,7 @@ const dnd = ({ parameters, index, handleCheckAnswer }) => {
 		} else {
 			setWithExplanationScreen(true);
 			requestAnimationFrame(() => {controls.start("animate");});
+			setAudioURL({ id: "mission2_reveal", url: content.revealAudio, type: "mission2_audio" });
 			const newSelectedAnswers = [...selectedAnswers];
 			const correctUsedItems = [];
 			const newClasses = [];
@@ -318,7 +323,7 @@ const dnd = ({ parameters, index, handleCheckAnswer }) => {
 	};
 
 	return ( 
-		<div className="dnd-container component-container w-100" style={{ backgroundImage: `url(images/toc_bg.png)`,}}>
+		<div className="dnd-container component-container w-100">
 			<motion.div ref={containerRef} className="dnd-wrapper w-100 component-content" variants={getAnimation("blurIn", 0.8, 0)} initial="initial" animate={controls}>
          <		motion.div className="birdAndScore" variants={getAnimation("flipX", 0.6, 0.4)} initial="initial" animate={controls}>
 					<ShowAttemptGrade />
@@ -380,33 +385,33 @@ const dnd = ({ parameters, index, handleCheckAnswer }) => {
 													</motion.div>
 												)}
 												{showDraggables && !withExplanationScreen && (
-												<div className="draggable-container">
-													{Object.keys(groupedItems || {}).map(sentenceId => {
-													const items = [...groupedItems[sentenceId]].sort(
-														(a, b) => a.sentenceIndex - b.sentenceIndex
-													);
+													<div className="draggable-container">
+														{Object.keys(groupedItems || {}).map(sentenceId => {
+															const items = [...groupedItems[sentenceId]].sort(
+																(a, b) => a.sentenceIndex - b.sentenceIndex
+															);
 
-													return (
-														<div key={sentenceId} className="sentence-row">
-														{items.map(item => (
-															<motion.div key={item.id} {...getAnimation("zoomIn", 0.4, 0)}>
-															<DraggableItem
-																id={item.id}
-																type={item.type}
-																value={item.value}
-																dataIndex={item.dataIndex}
-																cssClass={`draggable-item ${isLocked ? "disabled" : ""}`}
-																isDragging={activeId === item.id}
-																isUsed={usedItems.includes(item.id)}
-															/>
-															</motion.div>
-														))}
+															return (
+																<div key={sentenceId} className="sentence-row">
+																	{items.map(item => (
+																		<motion.div key={item.id} {...getAnimation("zoomIn", 0.4, 0)}>
+																			<DraggableItem
+																				id={item.id}
+																				type={item.type}
+																				value={item.value}
+																				dataIndex={item.dataIndex}
+																				cssClass={`draggable-item ${isLocked ? "disabled" : ""}`}
+																				isDragging={activeId === item.id}
+																				isUsed={usedItems.includes(item.id)}
+																			/>
+																		</motion.div>
+																	))}
 
-														<span className="sentence-period">.</span>
-														</div>
-													);
-													})}
-												</div>
+																	<span className="sentence-period">.</span>
+																</div>
+															);
+														})}
+													</div>
 												)}
 												<DndInner
 													droppableRefs={droppableRefs}
@@ -421,7 +426,7 @@ const dnd = ({ parameters, index, handleCheckAnswer }) => {
 									</div>
 								</motion.div>
 							</motion.div>
-							{allItemsDropped && pageContext.attemptGrade !=0  &&  !withExplanationScreen && (
+							{allItemsDropped && pageContext.attemptGrade !=0 && !withExplanationScreen && (
 								<div className="feedback-container-holder">
 									<Feedback
 										feedback={feedbackParams}
@@ -433,7 +438,7 @@ const dnd = ({ parameters, index, handleCheckAnswer }) => {
 								</div>
 							)}
 							{content.rounds?.length > 1 && (
-								<motion.div className="round-progress"  variants={getAnimation("scaleIn", 0.6, 1.7)} initial="initial" animate={controls}>
+								<motion.div className="round-progress" variants={getAnimation("scaleIn", 0.6, 1.7)} initial="initial" animate={controls}>
 									{content.rounds.map((roundMap, roundIndex) => (
 										<div  className="dotAndLine" key={roundIndex}>
 											<div className={`round-dot ${ roundIndex < currentRound ? "completed" : roundIndex === currentRound ? "active" : ""}`}>

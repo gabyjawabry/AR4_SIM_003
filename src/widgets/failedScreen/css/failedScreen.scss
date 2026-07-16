@@ -26,18 +26,19 @@
             height: 400px;
         }
     }
-
     .video-player.wrapper {
         position: absolute;
     }
     .lessonTitleHolder{
         background-image: url(../images/failedPopup.png);
+        // background-repeat: no-repeat;
+        // background-size: 100% auto;
+        //background-image: url(../images/layout_bg.png);
         background-repeat: no-repeat;
         background-size: 100% auto;
-        width: 921px;
-        height: 715px;
+        width: 926px;
+        height: 855px;
         position: relative;
-        padding: 0 60px;
         z-index: 11111;
         &.last{
             background-image: url(../images/failed-final.png);
@@ -67,12 +68,20 @@
     .lessonTitle {
         display: block;
         font-size: 80px;
-        line-height: 138px;
         color: #FFFFFF;
         // max-width: 600px;
         text-align: center;
         font-family: var(--AbdoLineBold);
         //font-weight: bold;
+        height: 100%;
+        .failedScreenText-wrapper{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 90px;
+        }
     }
     .lessonSubTitle {
         display: block;
@@ -89,14 +98,30 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 528px;
-    margin-top: 111px;
+    height: 90%;
+    .startLessonBtnHolder{
+        width: 100%;
+        height: calc(100% - 620px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 .failedScreen-content-titles{
     display: flex;
+    height: 620px;
     gap: 50px;
     flex-direction: column;
-    min-height: 200px;
+    width: 100%;
+    .yellowText{
+        color: #ffb333;
+        font-family: var(--SignikaSemiBold);
+        font-size: 120px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 video.videofailedScreen {
     position: absolute;

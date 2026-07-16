@@ -76,13 +76,15 @@ const VideoPlayer = ({ parameters: propsParams, onEnded, onLoad, onPlay,onTimeUp
   const isVisible = useIsVisible(containerRef);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-  const { stopAudio, setSimulationStartTime } = useContext(PageContext);
+  const { setAudioURL, stopAudio, setSimulationStartTime } = useContext(PageContext);
   const [playerElement, setPlayerElement] = useState(null);
   const [videoStarted, setVideoStarted] = useState(false);
   const overlayShownRef = useRef(false);
   const introVideoFirstPlayRef = useRef(false);
   const introAnimationsPreloaded = useRef(false);
   const showEndOverlay = parameters.videoData.showEndOverlay;
+  const overlayAudio = parameters.videoData.overlayAudio;
+  const overlayData = parameters.videoData.overlayData;
   const sendEvent = useEventSender();
   const [clipPath, setClipPath] = useState("");
   const [showTransparentOverlay, setShowTransparentOverlay] = useState(false);
@@ -99,8 +101,9 @@ const VideoPlayer = ({ parameters: propsParams, onEnded, onLoad, onPlay,onTimeUp
       },
     ],
   };
+
   useEffect(() => {
-    const overlayData = parameters.videoData.OverlayData;
+    
     if (!overlayData?.pathCoordinates) {
       setClipPath("");
       return;
@@ -117,7 +120,7 @@ const VideoPlayer = ({ parameters: propsParams, onEnded, onLoad, onPlay,onTimeUp
 
     setClipPath(polygon);
 
-  }, [parameters.videoData.OverlayData]);
+  }, [overlayData]);
 
 
   useEffect(() => {
@@ -149,38 +152,19 @@ const VideoPlayer = ({ parameters: propsParams, onEnded, onLoad, onPlay,onTimeUp
       if(!videoStarted) player.load();
     });
 
-    if(showEndOverlay){
-      // const VjsButton = videojs.getComponent('Button');
-      // class SkipButton extends VjsButton {
-      //   constructor(player, options) {
-      //     super(player, options);   
-      //     this.controlText('skip');
-      //     this.addClass("vjs-skip-button");
-      //   }   
-      //   handleClick() {
-      //     const player = playerRef.current;
-      //     if (!player) return;
-      //     if (player.paused()) player.play();
-      //     player.currentTime(player.duration());
-      //     const swiper = document.querySelector('#container-swiper')?.swiper;
-      //     if (swiper) swiper.slideNext(1);    
-      //   }
-      // }
-      // videojs.registerComponent('SkipButton', SkipButton);    
-      // player.getChild('controlBar').addChild('SkipButton', {}, 3);
-    }
-
     player.on('loadedmetadata', () => {
       player.on('timeupdate', () => {
         const currentTime = player.currentTime();
           onTimeUpdate?.(currentTime);
 
-          const showTime = parameters.videoData.OverlayData?.timeToShow;
+          const showTime = overlayData?.timeToShow;
+          const audioToPlay = overlayData?.audioToPlay;
 
           if(showTime && currentTime >= showTime && !overlayShownRef.current){
             setShowTransparentOverlay(true);
             player.pause();
             overlayShownRef.current = true;
+            setAudioURL({ id: "overlayAudio1", url: audioToPlay, type: "overlayAudio" });
           }
 
 
@@ -278,14 +262,10 @@ const VideoPlayer = ({ parameters: propsParams, onEnded, onLoad, onPlay,onTimeUp
     player.on('ended', () => {
       setIsPlaying(false);
       setshowOverlayOnVideoEnd(true); 
-      // if (parameters.videoData.nextScreenOnVideoEnd) {
-      //     const swiper = document.querySelector("#container-swiper")?.swiper;
-
-      //     if (swiper) {
-      //       swiper.slideNext(1);
-      //     }
-      //   }
       if (typeof onEnded === 'function') onEnded();
+      if(showEndOverlay && overlayAudio){
+        setAudioURL({ id: "overlayAudio2", url: overlayAudio, type: "overlayAudio" });
+      }
     });
     player.on('loadeddata', () => {
       if (typeof onLoad === 'function') onLoad();
@@ -354,13 +334,14 @@ const VideoPlayer = ({ parameters: propsParams, onEnded, onLoad, onPlay,onTimeUp
     player.muted(!player.muted());
   };
   const skipVideoBtn = () => {
+    stopAudio();
     const player = playerRef.current;
     if (!player) return;
- if (player.isFullscreen()) {
-    player.exitFullscreen();
-  }
-    if (player.paused()) player.play();
-    player.currentTime(player.duration());
+    if (player.isFullscreen()) {
+      player.exitFullscreen();
+    }
+    // if (player.paused()) player.play();
+    // player.currentTime(player.duration());
     const swiper = document.querySelector('#container-swiper')?.swiper;
     if (swiper) swiper.slideNext(1);
 

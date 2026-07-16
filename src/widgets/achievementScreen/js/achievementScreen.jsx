@@ -43,40 +43,40 @@ const AchievementScreen = ({parameters}) => {
   // }, [content.audio, content.achievement, setAudioURL, stopAudio]);
 
   return (
-    <motion.div ref={containerRef}  className="achievementScreen-container p-0 m-0 h-100 w-100" {...getAnimation("fade", 0.4, 0)} initial="initial" animate={controls}>
+    <motion.div ref={containerRef} className={`achievementScreen-container p-0 m-0 h-100 w-100 achievementScreen-container-game-${content.gameId}`} variants={getAnimation("fade", 0.4, 0)} initial="initial" animate={controls}>
       <div className="achievementScreen-content w-100">
-        <motion.div {...getAnimation("bounceInTop", 0.4, 1)} className={`lessonTitleHolder ${content.last ? 'last' : ''}`}>
+        <motion.div className={`lessonTitleHolder ${content.last ? 'last' : ''}`} variants={getAnimation("bounceInTop", 0.4, 1)} initial="initial" animate={controls}>
           <div className="achievementScreen-content-wrapper">
               <div className="UpperDiv">
-                <motion.div {...getAnimation("rotateZoomIn", 0.8, 1)} className="smallStarRight">
+                <motion.div variants={getAnimation("rotateZoomIn", 0.8, 1.5)} initial="initial" animate={controls} className="smallStarRight">
                   <img src={smallStarImg} alt="small star" />
                 </motion.div>
-                <motion.div {...getAnimation("rotateZoomIn", 0.8, 1)}>
+                <motion.div variants={getAnimation("rotateZoomIn", 0.8, 1.5)} initial="initial" animate={controls}>
                   <img src={bigStarImg} alt="big star" />
                 </motion.div>
-                <motion.div {...getAnimation("rotateZoomIn", 0.8, 1)}>
+                <motion.div variants={getAnimation("rotateZoomIn", 0.8, 1.5)} initial="initial" animate={controls}>
                   <img src={mainStarImg} alt="main star" />
                 </motion.div>
-                <motion.div {...getAnimation("rotateZoomIn", 0.8, 1)}>
+                <motion.div variants={getAnimation("rotateZoomIn", 0.8, 1.5)} initial="initial" animate={controls}>
                   <img src={bigStarImg} alt="big star" />
                 </motion.div>
-                <motion.div {...getAnimation("rotateZoomIn", 0.8, 1)} className="smallStarLeft">
+                <motion.div variants={getAnimation("rotateZoomIn", 0.8, 1.5)} initial="initial" animate={controls} className="smallStarLeft">
                   <img src={smallStarImg} alt="small star" />
                 </motion.div>
               </div>
 
             <div className="achievementScreen-content-titles">
-              <motion.div {...getAnimation("expandIn", 0.8, 1)} className="lessonTitle" dangerouslySetInnerHTML={{ __html: content.lessonTitle }} />
+              <motion.div variants={getAnimation("expandIn", 0.8, 1.5)} initial="initial" animate={controls} className="lessonTitle" dangerouslySetInnerHTML={{ __html: content.lessonTitle }} />
             </div>
             {content.withScore && (
-              <motion.div {...getAnimation("rotateZoomIn", 0.8, 1)} className="teamImageMainDiv">             
+              <motion.div variants={getAnimation("rotateZoomIn", 0.8, 1.5)} initial="initial" animate={controls} className="teamImageMainDiv">             
                 <div className="teamSelectedScore">
                   <ShowScoring />
                 </div>
               </motion.div>
             )} 
             {!content.last  && (
-              <motion.div className="startLessonBtnHolder" {...getAnimation("scaleIn", 0.4, 1)}>
+              <motion.div className="startLessonBtnHolder" variants={getAnimation("scaleIn", 0.4, 1.5)} initial="initial" animate={controls}>
                 <button className="startLessonBtn" onClick={handleStartAnimations}>
                   <FormattedMessage id='feedback.continue' />
                 </button>

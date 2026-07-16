@@ -45,7 +45,7 @@
 }
 .mc-content {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     align-content: center;
     // height: 150px;
@@ -64,7 +64,8 @@
     display: flex;
     justify-content: center;
     padding: 0;
-    background-image: url(/src/container/images/game1_bg.png);
+    // background-image: url(/src/container/images/game1_bg.png);
+    background-image: url(../../../container/images/game1_bg.png);
     background-repeat: no-repeat;
     background-size: 100%;
   .mc-option {
@@ -121,7 +122,7 @@
       align-content: flex-start;
   }
   .feedback-container-holder {
-    height: 300px;
+    height: 240px;
   }
 }
 .mc-option {
@@ -214,9 +215,9 @@
 .mc-game-container{
     background: #fff;
     width: 680px;
-    min-height: 788px;
+    min-height: 718px;
     position: absolute;
-    bottom: 100px;
+    bottom: 170px;
     left: 167px;
     border-radius: 20px;
     box-shadow: 0px 6px 14px rgba(72, 84, 101, 0.15);
@@ -333,4 +334,10 @@
     min-height: 534px;
     top: 200px;
     bottom: auto;
+}
+
+#Main_Slide-9{
+  .mc-content{
+    justify-content: center;
+  }
 }

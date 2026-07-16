@@ -15,9 +15,11 @@ import ButtonClickSFX from "../sounds/button_click.mp3";
 import ShowAttemptGrade from '../../../container/js/showAttemptGrade.jsx';
 import ShowScoring from '../../../container/js/showScoring.jsx';
 import { getAnimationAsync } from '../../../container/js/utilities/helper.jsx';
-import CorrectSFX from '../sounds/gauge_correct.mp3';
-import IncorrectSFX from '../sounds/gauge_incorrect.mp3';
+
 import { FormattedMessage } from "react-intl";
+import CorrectSFX from '../../../container/audio/correct.mp3';
+import IncorrectSFX from '../../../container/audio/wrong.mp3';
+
 const MultipleChoice = (props) => {
   const pageContext = useContext(PageContext);
   // const setAudioURL = pageContext.setAudioURL;
@@ -111,7 +113,7 @@ const MultipleChoice = (props) => {
   }
 
   const goToNextRound = () => {
-   const rounds = content.gameId === 3  ? content?.rounds : content?.correctAnswersArray;
+    const rounds = content.gameId === 3  ? content?.rounds : content?.correctAnswersArray;
     const isLastRound = currentRound === (rounds?.length ?? 0) - 1;
     const newGrade = Math.min(pageContext.studentGrade + 1, 6);
     pageContext.setStudentGrade(newGrade);
@@ -161,9 +163,11 @@ const MultipleChoice = (props) => {
     if(newGrade === 0 ){
       const swiper = document.querySelector("#container-swiper")?.swiper;
 
-      if (swiper) {
-        swiper.slideTo(swiper.slides.length - 1, 1);
-      }
+      setAudioURL({ id: "wrong", url: IncorrectSFX, type: "sfx" }, () => {
+        if (swiper) {
+          swiper.slideTo(swiper.slides.length - 1, 1);
+        }
+      });
     }
 
     const tocIndex = roundData?.index ?? content?.index;
@@ -175,12 +179,12 @@ const MultipleChoice = (props) => {
 
     feedbackData = {
       class: isCorrect ? "correct" : "incorrect",
-      message: isCorrect ? (roundData?.feedback?.correct?.text ?? content?.feedback?.correct?.text): (roundData?.feedback?.incorrect?.text ?? content?.feedback?.incorrect?.text),      
-      audio: isCorrect? roundData?.feedback?.correct?.audio : pageContext.attemptGrade === 0  ? content?.hintAudio : roundData?.feedback?.incorrect?.audio,    
+      message: isCorrect ? (roundData?.feedback?.correct?.text ?? content?.feedback?.correct?.text): (roundData?.feedback?.incorrect?.text ?? content?.feedback?.incorrect?.text),
+      audio: newGrade > 0 ? isCorrect ? (roundData?.feedback?.correct?.audio ?? content?.feedback?.correct?.audio) : (roundData?.feedback?.incorrect?.audio ?? content?.feedback?.incorrect?.audio) : "",
       canRetry: !isCorrect && pageContext.attemptGrade > 0,
       result: isCorrect ? "correct" : "incorrect",
       isCorrect: isCorrect,
-      sfx: isCorrect ? CorrectSFX : IncorrectSFX
+      sfx: newGrade > 0 ? isCorrect ? CorrectSFX : IncorrectSFX : "no_sfx" 
     };
 
     setFeedbackParams(feedbackData);

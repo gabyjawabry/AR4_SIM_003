@@ -65,16 +65,18 @@ const Feedback = forwardRef(({ feedback, submitLimit, handleSubmit, handleContin
       sendEvent('submit-answer', logEvent);
 
       if (isCorrect) {
-        setAudioURL({ id: "correctSFX", url: correctSoundEffect, type: "sfx"}, () => {
+        setAudioURL({ id: "correctSFX", url: result.feedbackData.sfx ? result.feedbackData.sfx : correctSoundEffect, type: "sfx"}, () => {
           setAudioURL({ id: "correctFeedback", url: result.feedbackData.audio, type: "correctFeedback" });
         });
 
         setSubmitText(intl.formatMessage({ id: 'feedback.continue' }));
         setSubmitAction('continue');
       } else {
-        setAudioURL({ id: "wrong", url: incorrectSoundEffect, type: "sfx" }, () => {
-          setAudioURL({ id: "incorrectFeedback", url: result.feedbackData.audio, type: "incorrectFeedback" });
-        });
+        if(result.feedbackData.sfx != "no_sfx"){
+          setAudioURL({ id: "wrong", url: result.feedbackData.sfx ? result.feedbackData.sfx : incorrectSoundEffect, type: "sfx" }, () => {
+            setAudioURL({ id: "incorrectFeedback", url: result.feedbackData.audio, type: "incorrectFeedback" });
+          });
+        }
 
         if (result.feedbackData.canRetry && submitLimit && count < submitLimit) {
           setSubmitText(intl.formatMessage({ id: 'feedback.tryagain' }));

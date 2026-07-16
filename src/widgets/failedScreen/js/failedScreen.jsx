@@ -33,7 +33,7 @@ const FailedScreen = ({parameters}) => {
   return (
     <div className={`failedScreen-container failedScreen-container_${missionNumber} p-0 m-0 h-100 w-100`}>
       <div className="failedScreen-content w-100">
-        <motion.div ref={containerRef}  className="lessonTitleHolder"   variants={getAnimation("bounceInTop", 0.4, 1)} initial="initial" animate={controls}>
+        <motion.div ref={containerRef} className="lessonTitleHolder" variants={getAnimation("bounceInTop", 0.4, 1)} initial="initial" animate={controls}>
           <div className="failedScreen-content-wrapper">
             <div className="failedScreen-content-titles">
               <motion.div {...getAnimation("expandIn", 0.8, 1)} className="lessonTitle" dangerouslySetInnerHTML={{ __html: content.lessonTitle }}/>

@@ -7,9 +7,28 @@
     justify-content: center;
     padding: 0;
     height: 100% !important;
-    background-image: url(../../../container/images/layout_bg.png);
+    background-image: url(../images/layout_bg.png);
     background-repeat: no-repeat;
     background-size: 100%;
+    &.achievementScreen-container-game-1{
+        .lessonTitleHolder{
+            background-image: url(../images/splshPopup.png);
+            .achievementScreen-content-wrapper{
+                height: 83%;
+            }
+        }
+    }
+    &.achievementScreen-container-game-2,
+    &.achievementScreen-container-game-3{
+        .lessonTitleHolder{
+            background-image: url(../images/splshPopup2.png);
+            width: 911px;
+            height: 659px;
+            .achievementScreen-content-wrapper{
+                height: 74%;
+            }
+        }
+    }
 
     .achievementScreen-content{
         font-family: var(--AbdoLineRegular);
@@ -44,7 +63,7 @@
         margin: 20px;
     }
     .lessonTitleHolder{
-        background-image: url(../images/splshPopup.png);
+        // background-image: url(../images/splshPopup.png);
         background-repeat: no-repeat;
         background-size: 100% auto;
         width: 1056px;
@@ -183,7 +202,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height:790px;
+    height: 74%;
     margin-top: 65px;
 }
 .achievementScreen-content-titles{

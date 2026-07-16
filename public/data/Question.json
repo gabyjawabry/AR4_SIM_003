@@ -38,11 +38,13 @@
             "autoplay":true,
             "showVideoControls":false,
             "showEndOverlay":true,
-            "overlayText":"<div class='splashScreenText-wrapper'>المَرْحَلَةُ الأُولَى<div class='yellowText'>رَصْدُ الحوارِ</div></div>",
-            "transparentOverlay":true,
-            "OverlayData":{
-               "pathCoordinates":"736,86,795,76,866,72,1142,74,1200,84,1237,113,1256,140,1281,147,1298,165,1315,206,1311,259,1315,287,1293,316,1269,370,1208,413,1183,421,1087,433,1031,421,995,353,955,339,930,369,919,410,875,433,824,447,761,440,671,382,640,325,633,293,621,259,619,195,641,160,684,124,710,101,726,94,719,94",
-               "timeToShow":1.4
+            "overlayAudio": "audio/page2/audio_2_2.mp3",
+            "overlayText": "<div class='splashScreenText-wrapper'>المَرْحَلَةُ الأُولَى<div class='yellowText'>رَصْدُ الحوارِ</div></div>",
+            "transparentOverlay": true,
+            "overlayData": {
+               "pathCoordinates": "736,86,795,76,866,72,1142,74,1200,84,1237,113,1256,140,1281,147,1298,165,1315,206,1311,259,1315,287,1293,316,1269,370,1208,413,1183,421,1087,433,1031,421,995,353,955,339,930,369,919,410,875,433,824,447,761,440,671,382,640,325,633,293,621,259,619,195,641,160,684,124,710,101,726,94,719,94",
+               "timeToShow": 1.4,
+               "audioToPlay": "audio/page2/audio_2_1.mp3"
             },
             "controls":{
                "control_bar":false,
@@ -62,15 +64,14 @@
       "Question_3":{
          "type":"multiplechoice",
          "content":{
-            "index":1,
-            "gameId":1,
-            "hintAudio":"audio/page8/audio_8_hint.mp3",
+            "index": 1,
+            "gameId": 1,
             "withExplanationScreen":true,
             "explanationScreen":{
                "image":"images/mcExplanation.png"
             },
             "mainQuestion":"اِنْقُرْ عَلَى الجُمَلِ الاسْمِيَّةِ:",
-            "mainQuestionAudio":"audio/page11/audio11_1.mp3",
+            "mainQuestionAudio":"audio/page3/audio_3_1.mp3",
             "correctAnswersArray":[
                "لِقَاؤُنَا سَرِيعٌ.",
                "الوَضْعُ هادئٌ.",
@@ -91,11 +92,11 @@
                "continue": "next",
                "incorrect": {
                   "text": " الجملةُ الاسميّة تبدأُ باسمٍ، حَاوِلْ مَرَّةً أُخْرَى!",
-                  "audio": "audio/page4/audio_4_incorrect.mp3"
+                  "audio": "audio/page3/audio_3_incorrect.mp3"
                },
                "correct": {
-                  "text": "أَحْسَنْتَ! هٰذِهِ جُمْلَةٌ اسْمِيَّةٌ لِأَنَّها بَدَأَتْ بِاسْمٍ.<br>أَتْمَمْتَ الْمُهْمَّةَ بِالنَّجَاحِ! اِنْقُرْ عَلَى الاسْتِمْرارِ!",
-                  "audio": "audio/page4/audio_4_correct.mp3"
+                  "text": "أَحْسَنْتَ! هٰذِهِ جُمْلَةٌ اسْمِيَّةٌ لِأَنَّها بَدَأَتْ بِاسْمٍ.",
+                  "audio": "audio/page3/audio_3_correct.mp3"
                }
             }
          }
@@ -103,8 +104,9 @@
       "Question_4":{
          "type":"achievementScreen",
          "content":{
+            "gameId":1,
             "lessonTitle":"<div class='splashScreenText-wrapper'>أَتْمَمْتَ المُهمّةَ بنجاحٍ</div>",
-            "mainQuestionAudio":"audio/page9/audio9_1.mp3",
+            "mainQuestionAudio":"audio/page4/audio_4_1.mp3",
             "withScore":true
          }
       },
@@ -112,7 +114,7 @@
          "type":"splashScreen",
          "content":{
             "splashIndex":1,
-            "mainQuestionAudio":"audio/page7/audio_7_1.mp3",
+            "mainQuestionAudio":"audio/page5/audio_5_1.mp3",
             "lessonTitle":"<div class='splashScreenText-wrapper'>المَرْحَلَةُ الثَّانِيَةُ<div class='yellowText'> مهمّةُ الاستكشافِ</div></div>"
          }
       },
@@ -123,9 +125,8 @@
             "gameId":2,
             "showResult":false,
             "mainQuestion":"اِسْحَبِ الْمُبْتَدَأَ وَضَعْهُ دَاخِلَ الإِطارِ.",
-            "characterImage":"speed",
-            "mainQuestionAudio":"audio/page8/audio_8_1.mp3",
-            "hintAudio":"audio/page8/audio_8_hint.mp3",
+            "mainQuestionAudio":"audio/page6/audio_6_1.mp3",
+            "revealAudio":"audio/page6/audio_6_2.mp3",
             "withExplanationScreen":false,
             "rounds":[
                {
@@ -139,7 +140,6 @@
                         "dataIndex":"object_1",
                         "sentenceId":0,
                         "sentenceIndex":0
-                       
                      },
                       {
                         "id":"draggable-2",
@@ -240,7 +240,7 @@
                      {
                         "id":"draggable-14",
                         "type":"text",
-                        "value":" مَاطِرٌ. ",
+                        "value":" مَاطِرٌ ",
                         "dataIndex":"object_2",
                         "sentenceId":5,
                         "sentenceIndex":2
@@ -281,12 +281,12 @@
                   "submitLimit":2,
                   "feedback":{
                      "incorrect":{
-                        "text":"بَعْضُ الجُمَلِ لَيْسَ لَها مَعْنًى واضِحٌ.",
-                        "audio":"audio/page8/audio_8_incorrect.mp3"
+                        "text":"رَكِّزْ جَيِّدًا، بعض الكَلِمَات لَيْسَتْ مُبْتَدَأً.",
+                        "audio":"audio/page6/audio_6_incorrect.mp3"
                      },
                      "correct":{
-                        "text":"",
-                        "audio":"audio/page8/audio_8_correct.mp3"
+                        "text":"أَحْسَنْتَ، هذهِ الكَلِمَاتُ مُبْتَدَأٌ.",
+                        "audio":"audio/page6/audio_6_correct.mp3"
                      }
                   }
                }
@@ -296,8 +296,9 @@
       "Question_7":{
          "type":"achievementScreen",
          "content":{
+            "gameId": 2,
             "lessonTitle":"<div class='splashScreenText-wrapper'>أَتْمَمْتَ المُهمّةَ بنجاحٍ</div>",
-            "mainQuestionAudio":"audio/page9/audio9_1.mp3",
+            "mainQuestionAudio":"audio/page7/audio_7_1.mp3",
             "withScore":false
          }
       },
@@ -334,13 +335,12 @@
          "content":{
             "index":1,
             "gameId":3,
-            "hintAudio":"audio/page8/audio_8_hint.mp3",
             "withExplanationScreen":true,
             "explanationScreen":{
                "image":"images/mcExplanation.png"
             },
             "mainQuestion":"حَدِّدِ الخَبَرَ فِي الجُمْلَةِ.",
-            "mainQuestionAudio":"audio/page11/audio11_1.mp3",
+            "mainQuestionAudio":"audio/page9/audio_9_1.mp3",
             "rounds":[
                {
                   "correctAnswersArray":[
@@ -360,11 +360,11 @@
                      "continue":"next",
                      "incorrect":{
                         "text":"",
-                        "audio":"audio/page11/audio11_incorrect.mp3"
+                        "audio":"audio/page9/audio_9_incorrect.mp3"
                      },
                      "correct":{
                         "text":"",                        
-                        "audio":"audio/page11/audio11_correct_1.mp3"
+                        "audio":"audio/page9/audio_9_correct.mp3"
                      }
                   }
                },
@@ -386,11 +386,11 @@
                      "continue":"next",
                      "incorrect":{
                         "text":"",
-                        "audio":"audio/page11/audio11_incorrect.mp3"
+                        "audio":"audio/page9/audio_9_incorrect.mp3"
                      },
                      "correct":{
                         "text":"",
-                        "audio":"audio/page11/audio11_correct_2.mp3"
+                        "audio":"audio/page9/audio_9_correct.mp3"
                      }
                   }
                },
@@ -412,11 +412,11 @@
                      "continue":"next",
                      "incorrect":{
                        "text":"",
-                        "audio":"audio/page11/audio11_incorrect.mp3"
+                        "audio":"audio/page9/audio_9_incorrect.mp3"
                      },
                      "correct":{
                         "text":"",
-                        "audio":"audio/page11/audio11_correct_3.mp3"
+                        "audio":"audio/page9/audio_9_correct.mp3"
                      }
                   }
                },
@@ -438,11 +438,11 @@
                      "continue":"next",
                      "incorrect":{
                         "text":"",
-                        "audio":"audio/page11/audio11_incorrect.mp3"
+                        "audio":"audio/page9/audio_9_incorrect.mp3"
                      },
                      "correct":{
                        "text":"",
-                        "audio":"audio/page11/audio11_correct_3.mp3"
+                        "audio":"audio/page9/audio_9_correct.mp3"
                      }
                   }
                }
@@ -452,7 +452,8 @@
       "Question_10":{
          "type":"achievementScreen",
          "content":{
-            "mainQuestionAudio":"audio/page15/audio15_1.mp3",
+            "gameId": 3,
+            "mainQuestionAudio":"audio/page10/audio_10_1.mp3",
             "lessonTitle":"<div class='splashScreenText-wrapper'>أَتْمَمْتَ المُهمّةَ بنجاحٍ</div>",
             "withScore":false
          }
@@ -468,8 +469,8 @@
          "type":"failedScreen",
          "content":{
             "failedIndex":1,
-            "mainQuestionAudio":"audio/page7/audio_7_1.mp3",
-            "lessonTitle":"<div class='failedScreenText-wrapper'>انتهتِ المُحاولاتُ!<div class='yellowText'> 3 / 0 <img alt='slide' class='failed-image' src='images/failedBird.png'></div></div>"
+            "mainQuestionAudio":"audio/page12/audio_12_1.mp3",
+            "lessonTitle":"<div class='failedScreenText-wrapper'>انتهتِ المُحاولاتُ!<div class='yellowText'> 0/3 <img alt='slide' class='failed-image' src='images/failedBird.png'></div></div>"
          }
       }
    }
