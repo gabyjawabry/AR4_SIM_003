@@ -1,0 +1,110 @@
+{
+    "slide": {
+        "Main_Slide": {
+            "animation": "slide",
+            "show_title": true,
+            "show_navigation": false,
+            "show_navigation_buttons": true,
+            "next_button_text": "الشاشة الاحقة",
+            "prev_button_text": "الشاشة السابقة",
+            "items": [
+                {
+                    "slide_id": 1,
+                    "content": [
+                        {
+                            "component_id": "Question_1"
+                        }
+                    ]
+                },
+                {
+                    "slide_id": 2,
+                    "content": [
+                        {
+                            "component_id": "Question_2"
+                        }
+                    ]
+                },
+                {
+                    "slide_id": 3,
+                    "content": [
+                        {
+                            "component_id": "Question_3"
+                        }
+                    ]
+                },
+                {
+                    "slide_id": 4,
+                    "content": [
+                        {
+                            "component_id": "Question_4"
+                        }
+                    ]
+                },
+                {
+                    "slide_id": 5,
+                    "content": [
+                        {
+                            "component_id": "Question_5"
+                        }
+                    ]
+                },
+                {
+                    "slide_id": 6,
+                    "content": [
+                        {
+                            "component_id": "Question_6"
+                        }
+                    ]
+                },
+                {
+                    "slide_id": 7,
+                    "content": [
+                        {
+                            "component_id": "Question_7"
+                        }
+                    ]
+                },
+                {
+                    "slide_id": 8,
+                    "content": [
+                        {
+                            "component_id": "Question_8"
+                        }
+                    ]
+                },
+                {
+                    "slide_id": 9,
+                    "content": [
+                        {
+                            "component_id": "Question_9"
+                        }
+                    ]
+                },
+                {
+                    "slide_id": 10,
+                    "content": [
+                        {
+                            "component_id": "Question_10"
+                        }
+                    ]
+                },
+                {
+                    "slide_id": 11,
+                    "content": [
+                        {
+                            "component_id": "Question_11"
+                        }
+                    ]
+                },
+                {
+                    "slide_id": 12,
+                    "content": [
+                        {
+                            "component_id": "Question_12"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,47 @@
+.audio-help-container {
+    position: absolute;
+    right: 20px;
+    top: 13px;
+    // z-index: 1;
+}
+.audio-icon-container{
+    button{
+        width: 88px;
+        height: 88px;
+        background-color: #99E2F7 !important;;
+        border-radius: 50% !important;;
+        border: 0px solid #FFFFFF !important;;
+        color: #006E8E !important;;
+        box-shadow: none !important;
+        transition: all 0.2s ease;
+        &:hover{
+            transform: scale(1.1);
+            transform-origin: center;
+        }
+        // &:active{
+        //     background-color: #99E2F7 !important;
+        //     border: 4px solid #FFFFFF !important;
+        //     color: #006E8E !important;
+        // }
+        // &:focus{
+        //     background-color: #99E2F7 !important;
+        //     border: 4px solid #FFFFFF !important;
+        //     color: #006E8E !important;
+        // }
+        // &:focus-visible{
+        //     background-color: #99E2F7 !important;
+        //     border: 4px solid #FFFFFF !important;
+        //     color: #006E8E !important;
+        // }
+        // &:hover{
+        //     background-color: #99E2F7 !important;
+        //     border: 4px solid #FFFFFF !important;
+        //     color: #006E8E !important;
+        // }
+    }
+    svg {
+    width: 88px !important;
+    height: 88px !important;
+}
+}
+

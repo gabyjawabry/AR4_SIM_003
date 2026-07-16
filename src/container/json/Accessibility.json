@@ -1,0 +1,41 @@
+{
+    "accessibility": {
+
+        "explanation": {
+            "gotit": {
+                "label": "Close Explanation and move to the next question"
+            }
+        },
+        "feedback": {
+            "submit": {
+                "label": "Submit Answers"
+            },
+            "seewhy": {
+                "label": "See Why"
+            },
+            "gotit": {
+                "label": "Move to next question"
+            },
+            "next": {
+                "label": "Move to next question"
+            },
+            "tryagain": {
+                "label": "Try Again"
+            }
+        },
+        "audio": {
+            "main-question": {
+                "label": "Play Main Question Audio"
+            },
+            "feedback": {
+                "label": "Play Feedback Audio"
+            },
+            "hint": {
+                "label": "Play Hint Audio"
+            },
+            "explanation": {
+                "label": "Play Explanation Audio"
+            }
+        }
+    }
+}

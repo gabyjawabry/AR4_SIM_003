@@ -1,0 +1,38 @@
+{
+    "en": {
+        "feedback.submit": "Submit Answer",
+        "feedback.gotit": "Got it",
+        "feedback.seewhy": "See Why?",
+        "feedback.tryagain": "Try Again",
+        "explanation.title": "See Why?",
+        "page.loading": "Loading...",
+        "dnd.space.droppable": "Drop your answer here.",
+        "fib.fraction.picker": "Select type of answer",
+        "feedback.next": "Next",
+        "splashScreen.start": "أَبْدَأُ",
+        "splashScreen.next": "المُهمّة التاليةُ"
+    },
+    "ar": {
+        "splashScreen.start": "ابدأْ",
+        "splashScreen.next": "المُهمّة التاليةُ",
+        "splashScreen.text": "اضغطْ لبدءِ المهمّات!",
+        "feedback.submit": "جَرّبْ",
+        "feedback.gotit": "حسنًا",
+        "feedback.seewhy": "لماذا؟",
+        "feedback.tryagain": "حاولْ مرّةً أخرى",
+        "feedback.continue": "استمرْ",
+        "feedback.confirm": "تأكيد",
+        "feedback.buy": "شراء",
+        "explanation.title": "الإجاباتُ الصحيحةُ",
+        "explanation.closeButton": "تمام",
+        "page.loading": "تحميل...",
+        "dnd.space.droppable": "اترك إجابتك هنا.",
+        "fib.fraction.picker": "حدد نوع الإجابة",
+        "feedback.next": "التالي",
+        "toc.results": "النّتيجة",
+        "dropDownList.select": "اختر",
+        "hint.needhelp": "تحتاج مساعدة؟",
+        "username.placeholder": "اكتب اسمك هنا...",
+        "failedScreen.end":"إعادةُ المُحاولةِ"
+    }
+}

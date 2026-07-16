@@ -1,0 +1,200 @@
+.feedback-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+}
+button.btn.btn-primary.btn-sm[data-value="nextGame"] {
+    background: #FFE2B2 !important;
+    color: #664000 !important;
+    font-size: 42px !important;
+    border-radius: 26px !important;
+    border: 5px solid #FFA000 !important;
+    width: 258px !important;
+}
+.feedbackDiv {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.btn.btn-primary.btn-sm[data-value="next"] {
+    background-color: #DADDE0 !important;
+    width: 103px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    border: 6px solid #ffffff !important;
+    color: #485465 !important;
+    &:hover{
+        background-color: #ECEDEF !important;
+    }
+}
+button.btn.btn-primary.btn-sm[data-value="next"] svg{
+    width: 64px !important;
+    height: 64px !important;
+}
+.feedback-container-holder {
+    position: absolute;
+    bottom: 0;
+    height: 150px;
+    width: 100%;
+    right: 0;
+    padding: 0 10px;
+}
+
+.feedback-banner {
+    font-family: var(--AbdoLineRegular);
+    font-size: 42px;
+    padding: 0 34px 0 34px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    min-height: 108px;
+    width: 685px;
+}
+
+.feedback-banner .feedback-text,
+.feedback-banner .feedback-explanation-button {
+    font-size: 42px;
+    font-family: var(--AbdoLineRegular);
+}
+
+.feedback-banner.correct {
+    background: #D4EBC6;
+    color: #2D4C1A;
+}
+
+.feedback-banner.incorrect {
+    background: #FFF1BE;
+    color: #665410;
+    width: 595px;
+}
+
+.feedback-banner.incorrect svg[data-testid="CloseRoundedIcon"] {
+    background: #FFD3D3;
+    color: #FF6D6D;
+    border-radius: 8px;
+    stroke: #FF6D6D;
+    stroke-width: 1;
+}
+
+.feedback-banner.correct svg[data-testid="CheckRoundedIcon"] {
+    background: #D4EBC6;
+    color: #70BF42;
+    border-radius: 8px;
+    stroke: #70BF42;
+    stroke-width: 1;
+}
+
+.feedback-container button.btn.btn-primary.btn-sm {
+    font-family: var(--AbdoLineBold);
+    //font-weight: bold;
+    color: #2D4C1A;
+    font-size: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #D4EBC6;
+    border-radius: 50px;
+    border: 5px solid #ffffff;
+    height: 103px;
+    padding: 0 45px;
+    cursor: pointer;
+    transition: color .4s ease-in-out, background-color .4s ease-in-out, border .4s ease-in-out, border-radius .4s ease-in-out;
+    &[data-value="tryagain"] {
+        background-color: #FFE2B2;
+        border: 5px solid #FFA000;
+        border-radius: 15px;
+        color: #664000;
+        font-size: 42px;
+        padding: 0 25px;
+        height: 72px;
+    }
+}
+
+.feedback-banner .audio-icon-container button {
+    padding: 0;
+}
+
+button.btn:disabled,
+button.btn[disabled] {
+  background-color: #ccc;        
+  color: #666;                  
+  border-color: #bbb;           
+  cursor: not-allowed;          
+  opacity: 0.65;               
+  box-shadow: none;         
+}
+.correct.train-move.feedback-banner {
+    background-color: #D4EBC6;
+}
+.lastFeedbackContainer {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 100px);
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding: 26px 68px 10px 68px;
+    justify-content: center;
+    align-items: center;
+}
+.lastFeedbackTileHolder {
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    width: 1055px;
+    height: 950px;
+    display: flex;
+    align-items: center;
+    padding: 146px 20px 270px 20px;
+    position: absolute;
+    justify-content: center;
+    z-index: 222;
+}
+.lastFeedbackTile {
+    font-size: 75px;
+    color: white;
+    max-width: 600px;
+    text-align: center;
+}
+.achievementUpperDiv {
+    position: absolute;
+    top: 0;
+}
+.achievementImgHolder img {
+    width: 924px;
+}
+.lastFeedbackTile {
+    font-size: 75px;
+    color: white;
+    max-width: 600px;
+    text-align: center;
+    line-height: 170px;
+}
+.lastFeedbackTile {
+    font-size: 75px;
+    color: white;
+    max-width: 600px;
+    text-align: center;
+}
+.lastFeedbackTile span {
+    font-size: 40px;
+    line-height: 65px;
+    color: #ffa000;
+    display: block;
+    margin-top: 60px;
+}
+.startNextMission {
+    position: absolute;
+    bottom: 110px;
+}
+.feedback-container .btnContainer{
+    position: absolute;
+    left: 0;
+}

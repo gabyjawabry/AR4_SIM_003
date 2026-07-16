@@ -1,0 +1,199 @@
+.achievementScreen-container {
+    position: relative;
+    height: 1080px !important;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    height: 100% !important;
+    background-image: url(../../../container/images/layout_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    .achievementScreen-content{
+        font-family: var(--AbdoLineRegular);
+        font-size: 30px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        .characterAnimation{
+            position: absolute;
+            bottom: 175px;
+            right: 20px;
+            width: 400px;
+            height: 400px;
+        }
+    }
+}
+.yellowText{
+    color: #ffb333;
+}
+.achievementScreen-content {
+    .teamSelectedScore {
+        transform: scale(2.6);
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+    .lessonTitleHolder{
+        background-image: url(../images/splshPopup.png);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        width: 1056px;
+        height: 954px;
+        position: relative;
+        padding: 0 60px;
+        &.last{
+            background-image: url(../images/splash-final.png);
+            .achievementScreen-content-titles{
+                height: calc(100% - 180px);
+            }
+        }
+    }
+    .teamImageMainDiv{
+        margin-top: 50px;
+    }
+    .startLessonBtnHolder{
+        margin-top: 50px;
+    }
+}
+
+#Main_Slide-12, #Main_Slide-15{
+    .lessonTitle{
+        font-size: 70px;
+    }
+    .yellowText{
+        font-size: 100px;
+    }
+    .teamImageMainDiv{
+        margin-top: 0px;
+    }
+}
+.achievementScreen-content-wrapper  button.startLessonBtn {
+    border: 6px solid #70BF42;
+    border-radius: 51px;
+    background-color: #D4EBC6;
+    height: 103px;
+    width: 222px;
+    color: #2D4C1A;
+    font-size: 65px;
+    font-family: var(--AbdoLineBold);
+    box-shadow: 0 4px rgba(72, 84, 101, 0.1019607843);
+    transition: border-color 0.25s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+
+    &:hover{
+        border-color: #D4EBC6;
+        background-color: #F1F9EC;
+    }
+}
+.achievementScreen-content .UpperDiv {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    gap: 20px;
+    &.achievementScreen{
+        height: 180px;
+        width: 100%;
+        .bigStarLeft1{
+            position: absolute;
+            left: -70px;
+            top: 90px;
+            transform: rotate(45deg);
+        }
+        .bigStarLeft2{
+            position: absolute;
+            top: -20px;
+            left: 90px;
+            transform: rotate(45deg);
+        }
+        .smallStarLeft1{
+            position: absolute;
+            top: 80px;
+            left: 310px;
+            transform: rotate(45deg);
+        }
+        .goggles{
+            position: absolute;
+            top: -62px; 
+        }
+        .smallStarRight1{
+            position: absolute;
+            top: -40px;
+            left: 620px;
+            transform: rotate(-45deg);
+        }
+        .smallStarRight2{
+            position: absolute;
+            top: -10px;
+            left: 790px;
+            transform: rotate(60deg);
+        }
+        .bigStarRight1{
+            position: absolute;
+            top: 130px;
+            left: 780px;
+            transform: rotate(45deg);
+        }
+    }
+}
+.achievementScreen-content .lessonTitle {
+    display: block;
+    font-size: 100px;
+    color: #FFFFFF;
+    // max-width: 600px;
+    text-align: center;
+    font-family: var(--AbdoLineBold);
+    //font-weight: bold;
+}
+.achievementScreen-content .lessonSubTitle {
+    display: block;
+    font-size: 60px;
+    color: #FFB333;
+    text-align: center;
+    font-family: var(--AbdoLineBold);
+}
+
+.achievementScreen-content .smallStarLeft{
+    position: absolute;
+    top: 56px;
+    left: -31px;
+}
+.achievementScreen-content .smallStarRight{
+    position: absolute;
+    top: 56px;
+    left: 215px;
+}
+.achievementScreen-content-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height:790px;
+    margin-top: 65px;
+}
+.achievementScreen-content-titles{
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    // min-height: 200px;
+}
+.explanation-screen .startLessonBtnHolder {
+    position: absolute;
+    bottom: 25px;
+    left: 35px;
+}

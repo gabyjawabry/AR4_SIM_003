@@ -1,0 +1,84 @@
+.resultsScreen-container {
+    position: relative;
+    height: 1080px !important;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    height: 100% !important;
+    // background-image: url(../../../container/images/results_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    .resultsScreen-content{
+        font-family: var(--AbdoLineRegular);
+        font-size: 30px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
+    .replay-btn-holder{
+        position: absolute;
+        bottom: 20px;
+        left: auto;
+    }
+    button.replay-btn {
+        border-radius: 50%;
+        border: 6px solid #70BF42;
+        background-color: #D4EBC6;
+        font-size: 40px;
+        width: 115px;
+        height: 115px;
+        color: #2D4C1A;
+        transition: transform 0.2s ease;
+        &:hover{
+            transform: scale(1.1) !important;
+        }
+    }
+}
+
+.resultsScreen-content .lessonTitleHolder{
+    position: relative;
+    padding: 0 60px;
+}
+
+.resultsScreen-content button.startLessonBtn {
+    border: 6px solid #70BF42;
+    border-radius: 30px;
+    background-color: #D4EBC6;
+    height: 108px;
+    color: #2D4C1A;
+    font-size: 60px;
+    padding: 5px 65px 0 65px;
+    font-family: var(--AbdoLineBold);
+    box-shadow: 0 4px #4854651a;
+    transition: border-color .25s;
+    &:hover{
+        border-color: #D4EBC6;
+        background-color: #F1F9EC;
+    }
+}
+.resultsScreen-content .lessonTitleHolder {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 513px;
+    position: relative;
+    color: white;
+    font-size: 65px;
+    width: 665px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 128px;
+}
+.resultsScreen-content-wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

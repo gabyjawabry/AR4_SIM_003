@@ -1,0 +1,12 @@
+{
+    "page": {
+        "page_direction": "rtl",
+        "content": [
+            {
+                "component_id": "Main_Slide"
+            }
+        ],
+        "audio_autoplay": true,
+        "language": "ar"
+    }
+}

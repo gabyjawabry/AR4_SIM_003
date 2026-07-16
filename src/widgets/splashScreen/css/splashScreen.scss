@@ -1,0 +1,110 @@
+.splashScreen-container {
+    position: relative;
+    height: 1080px !important;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    height: 100% !important;
+    background-image: url(../images/layout_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    .splashScreen-content{
+        font-family: var(--AbdoLineRegular);
+        font-size: 30px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        .characterAnimation{
+            position: absolute;
+            bottom: 175px;
+            right: 20px;
+            width: 400px;
+            height: 400px;
+        }
+    }
+
+    .video-player.wrapper {
+        position: absolute;
+    }
+    .lessonTitleHolder{
+        background-image: url(../images/splashPopup.png);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        width: 921px;
+        height: 715px;
+        position: relative;
+        padding: 0 60px;
+        z-index: 11111;
+        &.last{
+            background-image: url(../images/splash-final.png);
+            .splashScreen-content-titles{
+                height: calc(100% - 180px);
+            }
+        }
+    }
+
+    button.startLessonBtn {
+        border: 6px solid #70BF42;
+        border-radius: 51px;
+        background-color: #D4EBC6;
+        height: 103px;
+        width: 222px;
+        color: #2D4C1A;
+        font-size: 65px;
+        padding: 5px 65px 0 65px;
+        font-family: var(--AbdoLineBold);
+        box-shadow: 0 4px rgba(72, 84, 101, 0.1019607843);
+        transition: border-color 0.25s;
+        &:hover{
+            border-color: #D4EBC6;
+            background-color: #F1F9EC;
+        }
+    }
+
+    .lessonTitle {
+        display: block;
+        font-size: 80px;
+        line-height: 138px;
+        color: #FFFFFF;
+        // max-width: 600px;
+        text-align: center;
+        font-family: var(--AbdoLineBold);
+        //font-weight: bold;
+    }
+    .lessonSubTitle {
+        display: block;
+        font-size: 60px;
+        color: #FFB333;
+        text-align: center;
+        font-family: var(--AbdoLineBold);
+    }
+}
+
+.splashScreen-content-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 528px;
+    margin-top: 111px;
+}
+.splashScreen-content-titles{
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    min-height: 200px;
+}
+video.videoSplashScreen {
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+}
