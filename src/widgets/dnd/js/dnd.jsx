@@ -109,6 +109,7 @@ const dnd = ({ parameters, index, handleCheckAnswer }) => {
  	const hiddenText=[ "لِقَاؤُنَا","شُرُوقُ","يَوْمٌ","الاِثْنَيْن"]
 	useEffect(() => {
 		if (isVisible) {
+			pageContext.setAttemptGrade(3);
 			pageContext.setMissionNumber(content.gameId);
 			startTime.current = Date.now();
 			controls.start("animate");
