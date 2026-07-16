@@ -51,7 +51,10 @@ const MultipleChoice = (props) => {
     if (!content?.gameId) return;
 
     if (content.gameId === 3) {
-      if (!roundData) return;
+      if (!roundData?.correctAnswersArray || !roundData?.wrongAnswersArray) {
+        console.warn("Missing answers data:", roundData);
+        return;
+      }
 
       const mcCorrectOptions = roundData.correctAnswersArray.map(item => ({
         ...item,
@@ -108,7 +111,7 @@ const MultipleChoice = (props) => {
   }
 
   const goToNextRound = () => {
-    const rounds = roundData?.rounds ?? content?.correctAnswersArray;
+   const rounds = content.gameId === 3  ? content?.rounds : content?.correctAnswersArray;
     const isLastRound = currentRound === (rounds?.length ?? 0) - 1;
     const newGrade = Math.min(pageContext.studentGrade + 1, 6);
     pageContext.setStudentGrade(newGrade);

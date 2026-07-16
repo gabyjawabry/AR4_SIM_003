@@ -453,7 +453,7 @@
          "type":"achievementScreen",
          "content":{
             "mainQuestionAudio":"audio/page15/audio15_1.mp3",
-            "lessonTitle":"<div class='splashScreenText-wrapper'>أحسنتَ! لقد أَنهيتَ المرحلةَ الثّالثةَ بنجاحٍ!<div class='yellowText'> رصيد نقاطك الحالي هو:</div></div>",
+            "lessonTitle":"<div class='splashScreenText-wrapper'>أَتْمَمْتَ المُهمّةَ بنجاحٍ</div>",
             "withScore":false
          }
       },
