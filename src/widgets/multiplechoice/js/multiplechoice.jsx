@@ -186,7 +186,10 @@ const MultipleChoice = (props) => {
 
   useEffect(() => {
     pageContext.setMissionNumber(content.gameId);
-    if (isVisible) {  
+    if(currentRound===0){
+      pageContext.setAttemptGrade(3);
+    }
+    if (isVisible) { 
       if(content.gameId === 3){
         loadBackgroundVideo("cover");
       }
