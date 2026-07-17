@@ -6,12 +6,12 @@ import CorrectStars from "../../../container/images/correct-stars.svg?react";
 
 const DroppedItem = ({ item, index, className, remove,  onDroppedItemClick }) => {
   if (!item) return null;
-
+  const disabledItems =className.includes("correct") || className.includes("incorrect");
   return (
     <div
       className="dropped-item"
       onClick={() => onDroppedItemClick?.(item.droppableItem.index)}
-      style={{ pointerEvents: "auto" }}
+       style={{ pointerEvents: disabledItems ? "none" : "auto" }}
     >
       {item.type === "text" ? (
         <>

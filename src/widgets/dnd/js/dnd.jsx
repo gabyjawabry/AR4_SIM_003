@@ -301,17 +301,12 @@ const dnd = ({ parameters, index, handleCheckAnswer }) => {
 			const newSelectedAnswers = [...selectedAnswers];
 			const correctUsedItems = [];
 			const newClasses = [];
-			const hiddenIndexes = [];
-			selectedAnswers.forEach((ans, i) => {
+			const hiddenIndexes = hiddenText.map(text =>
+			selectedAnswers.findIndex(ans => {
 				const drag = roundData.draggableItems?.find(d => d.id === ans);
-
-				if (!drag) return;
-
-				if (hiddenText.includes(drag.value)) {
-					hiddenIndexes.push(i);
-				}
-			});
-
+				return drag?.value === text;
+			})
+			);
 			hiddenIndexes.forEach((index, order) => {
 				setTimeout(() => {
 					handleRemoveDroppedItem(index);

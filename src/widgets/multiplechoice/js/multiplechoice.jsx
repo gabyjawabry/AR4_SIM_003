@@ -38,6 +38,7 @@ const MultipleChoice = (props) => {
   const controls = useAnimation();
   const isVisible = useIsVisible(containerRef);
   const [currentRound, setCurrentRound] = useState(0);
+  const [videoState, setVideoState] = useState("cover");
   const roundData = content.rounds?.[currentRound] || {};
   const feedbackVideoRef = useRef();
   const [backgroundVideoData, setBackgroundVideoData] = useState(null);
@@ -107,6 +108,7 @@ const MultipleChoice = (props) => {
 
 
   async function loadBackgroundVideo(status) {
+    setVideoState(status);
     let anim;   
     anim = await getAnimationAsync(`mission3_question${currentRound + 1}_${status}`);
     setBackgroundVideoData(anim);
@@ -140,6 +142,10 @@ const MultipleChoice = (props) => {
       setSubmitted(false);
       setChecked(false);
       setFeedbackParams({});
+      if(content.gameId === 3){
+          loadBackgroundVideo("cover");
+      }
+
       return;
     } 
     if (type === "reset") {
@@ -298,7 +304,7 @@ const MultipleChoice = (props) => {
               autoPlay  
               muted  
               playsInline
-              loop
+              loop={videoState === "cover"}
             />
           );
         })()
